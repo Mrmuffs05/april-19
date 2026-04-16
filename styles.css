@@ -1,0 +1,160 @@
+body{
+    text-align: center;
+    font-family: "Happy Monkey", system-ui;
+    background-color: #a2d2ff;
+    background: linear-gradient(#a2d2ff, pink);
+    color:#ffffff;
+}
+#happy-text, #bday-text {
+    margin: 0; /* Removes the big gap between the two words */
+    padding: 0;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }    /* Start position */
+    50% { transform: translateY(-10px); } /* Move up 10 pixels */
+    100% { transform: translateY(0px); }  /* Back to start */
+}
+
+#happy-text {
+    font-size: 3rem;
+    color: #ffafcc; /* Different color for Happy */
+    animation: float 3s ease-in-out infinite;
+}
+
+#bday-text {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 10px; /* Space before the profile picture */
+    animation: float 3s ease-in-out 0.5s infinite;
+}
+
+#bday-text {
+    position: relative; /* This is the anchor for the cap */
+    display: inline-block; /* Allows the cap to stay attached to the word width */
+}
+
+#bday-text::before {
+    content: "🥳"; /* You can use an emoji or a link to an image */
+    position: absolute;
+    
+    /* Logic: Position it above the 'B' */
+    top: -45px; 
+    left: -20px;
+    
+    font-size: 3rem;
+    transform: rotate(-20deg); /* Tilts the cap for a fun look */
+    
+    /* Animation: Makes the cap bounce slightly */
+    animation: cap-bounce 2s ease-in-out infinite;
+}
+
+@keyframes cap-bounce {
+    0%, 100% { transform: rotate(-20deg) translateY(0); }
+    50% { transform: rotate(-10deg) translateY(-5px); }
+}
+
+h1,h2,h3,h4,p{
+    text-shadow: 0px 0px 1px black
+}
+
+img{
+    border-radius: 100%;
+    border: 6px solid #EFB0C9;
+    width: 200px;
+    height:300px;
+}
+
+#bday-age{
+    background: #EFB0C9;
+    border-radius: 3px;
+    padding:5px 10px;
+    margin:5px 0 10px 0;
+}
+
+#bday-date{
+    background: #EFB0C9;
+    border-radius: 3px;
+    padding:4px 8px 4px 8px;
+    margin-top: 3px;
+}
+
+#header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-section{
+    margin-top:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.gift-title{
+    margin-bottom:10px;
+}
+.gift-hint{
+    margin-top:0;
+}
+.gift-img{
+    width:400px;
+    height:400px;
+    border: 5px solid #B20A16;
+    background-image: url("../images/gift-cover.jpg");
+    background-size: cover;
+    background-position: center;
+}
+#gift-img-promise{
+    background-size: cover;
+}
+#gift-img-promise:hover{
+    background-image: url("../images/promise.gif");
+    background-size: 185%;
+    background-repeat: no-repeat;    
+}
+
+#gift-img-hot:hover{
+    background-image: url("../images/guyblushing.gif");
+    background-size: 200%;
+    background-repeat: no-repeat; 
+}
+
+#gift-img-scary:hover{
+    background-image:url("../images/anime-angry.gif");
+    background-size: 190%;
+    background-repeat: no-repeat; 
+}
+
+#gift-img-badass:hover{
+    background-image:url("../images/badass.gif");
+}
+
+#gift-img-thank:hover{
+        background-image:url("../images/anime-thank.gif");
+        background-size: 100%;
+        background-repeat: no-repeat;
+}
+
+/* 1. Hide the text by default */
+.hover-text {
+    display: none;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: 0px 0px 1px black;
+}
+
+/* 2. When the CONTAINER is hovered, show the text */
+.gift-container:hover .hover-text {
+    display: block;
+}
+
+/* 3. Ensure the container centers everything */
+.gift-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
