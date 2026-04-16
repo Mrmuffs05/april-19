@@ -5,6 +5,44 @@ body{
     background: linear-gradient(#a2d2ff, pink);
     color:#ffffff;
 }
+.banner {
+    width: 100%;
+    height: 400px;      /* 1. Increase height to give the 3D effect more room */
+    text-align: center;
+    overflow: visible;  /* 2. CRITICAL: Allows images to swing "outside" the box without being cut */
+    position: relative;
+    margin-top: 20px;   /* 3. Adds some breathing room below the Birthday text */
+}
+.banner .slider {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    top: 0%;            /* 4. Changed from 10% to 0% to move the whole slider up */
+    left: calc(50% - 75px);
+    transform-style: preserve-3d;
+    transform: perspective(1500px) rotateX(-10deg);
+    animation: autoRun 20s linear infinite;
+}
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    /* Lower translateZ prevents the front image from hitting the 'camera' */
+    transform: 
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(300px); 
+}
+.banner .slider .item img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+
+}
+
+@keyframes autoRun {
+    from { transform: perspective(1000px) rotateX(-10deg) rotateY(0deg); }
+    to { transform: perspective(1000px) rotateX(-10deg) rotateY(360deg); }
+}
+
 #happy-text, #bday-text {
     margin: 0; /* Removes the big gap between the two words */
     padding: 0;
@@ -157,4 +195,70 @@ img{
     align-items: center;
     margin-top: 50px;
 }
+
+.postcard-container {
+    margin: 100px auto;
+    width: 400px;
+    height: 250px;
+    perspective: 1000px; /* Gives the flip depth */
+}
+
+.postcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Keeps the children in 3D space */
+    cursor: pointer;
+}
+
+/* Logic: When we hover the container, flip the card 180 degrees */
+.postcard-container:hover .postcard {
+    transform: rotateY(180deg);
+}
+
+.postcard-front {
+    position: relative;
+    transform: rotateY(180deg); 
+}
+
+.postcard-front, .postcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Logic: Hides the side facing away from us */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* NEW CSS TO ADD */
+
+/* Target only the image inside the postcard front */
+.postcard-front img {
+    border-radius: 10px; /* Overrides the global 100% */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-sizing: border-box;
+    display: block;
+}
+
+.postcard-back {
+    background-color: #a2d2ff; 
+    color:#ffffff;
+    padding: 20px;
+    transform: rotateY(0deg); /* Changed from 180 to 0 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #ddd;
+}
+
+.signature {
+    text-align: right;
+    font-family: 'cursive', sans-serif;
+    margin-top: 20px;
+}
+
 
