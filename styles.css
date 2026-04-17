@@ -164,8 +164,10 @@ img{
     background-repeat: no-repeat; 
 }
 
-#gift-img-badass:hover{
-    background-image:url("images/badass.gif");
+#gift-img-cute:hover{
+    background-image:url("images/cute.gif");
+        background-size:178%;
+    background-repeat: no-repeat;
 }
 
 #gift-img-thank:hover{
