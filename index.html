@@ -29,7 +29,8 @@
         </div>
         <div class="gift-section">
             <h2 class="gift-title">"Happy Birthday! ရတီပျော်ရွှင်စရာကောင်းတယ့်နှစ်ကိုပိုင်ဆိုင်ရပါစေ🤝"</h2>
-            <h3 class="gift-hint">(လက်ဆောင်တွေပေါ်ထောက်ကြည့်ပေး)</h3>
+            <h3 class="gift-hint">(လက်ဆောင်တွေပေါ်ထောက်ကြည့်ပေးပါ<br> ကို့ကိုချစ်ရင်
+မချစ်ရင်တော့မထောက်နဲ့ပေါ့👀)</h3>
             <div class="gift-img" id="gift-img-promise"></div>
 
             <h2 class="gift-title">"ရတီကိုအပြင်မှာကိုတွေ့ရင်😍"</h2>
@@ -49,7 +50,7 @@
 
         </div> 
 
-            <div class="postcard-container">
+            <div class="postcard-container clickable-card">
                 <div class="postcard">
                     <div class="postcard-front">
                         <img src="images/yatisketch.jpg" alt="">
@@ -73,9 +74,31 @@
                     </div>
                 </div>
             </div>
+<script>
+    // LOGIC 1: Handle the Gifts
+    const gifts = document.querySelectorAll('.gift-img');
+    
+    gifts.forEach(gift => {
+        gift.addEventListener('click', function() {
+            // Toggles the 'active' class on and off
+            this.classList.toggle('active');
+        });
+    });
+
+    // LOGIC 2: Handle the Postcard
+    const card = document.querySelector('.clickable-card');
+    
+    if(card) {
+        card.addEventListener('click', function() {
+            // Toggles the 'flipped' class on and off
+            this.classList.toggle('flipped');
+        });
+    }
+</script>
     </body>
 
 </html>  
+
 
 
 
