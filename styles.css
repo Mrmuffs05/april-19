@@ -1,270 +1,236 @@
 body{
-    text-align: center;
-    font-family: "Happy Monkey", system-ui;
-    background-color: #a2d2ff;
-    background: linear-gradient(#a2d2ff, pink);
-    color:#ffffff;
+text-align: center;
+font-family: "Happy Monkey", system-ui;
+background-color: #a2d2ff;
+background: linear-gradient(#a2d2ff, pink);
+color:#ffffff;
 }
 .banner {
-    width: 100%;
-    height: 400px;      /* 1. Increase height to give the 3D effect more room */
-    text-align: center;
-    overflow: visible;  /* 2. CRITICAL: Allows images to swing "outside" the box without being cut */
-    position: relative;
-    margin-top: 20px;   /* 3. Adds some breathing room below the Birthday text */
+width: 100%;
+height: 400px; /* 1. Increase height to give the 3D effect more room */
+text-align: center;
+overflow: visible; /* 2. CRITICAL: Allows images to swing "outside" the box without being cut */
+position: relative;
+margin-top: 20px; /* 3. Adds some breathing room below the Birthday text */
 }
 .banner .slider {
-    position: absolute;
-    width: 150px;
-    height: 200px;
-    top: 0%;            /* 4. Changed from 10% to 0% to move the whole slider up */
-    left: calc(50% - 75px);
-    transform-style: preserve-3d;
-    transform: perspective(1500px) rotateX(-10deg);
-    animation: autoRun 20s linear infinite;
+position: absolute;
+width: 150px;
+height: 200px;
+top: 0%; /* 4. Changed from 10% to 0% to move the whole slider up */
+left: calc(50% - 75px);
+transform-style: preserve-3d;
+transform: perspective(1500px) rotateX(-10deg);
+animation: autoRun 20s linear infinite;
 }
 .banner .slider .item {
-    position: absolute;
-    inset: 0 0 0 0;
-    /* Lower translateZ prevents the front image from hitting the 'camera' */
-    transform: 
-        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-        translateZ(300px); 
+position: absolute;
+inset: 0 0 0 0;
+/* Lower translateZ prevents the front image from hitting the 'camera' */
+transform:
+rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+translateZ(300px);
 }
 .banner .slider .item img{
-    width: 100%;
-    height:100%;
-    object-fit: cover;
-
+width: 100%;
+height:100%;
+object-fit: cover;
 }
-
 @keyframes autoRun {
-    from { transform: perspective(1000px) rotateX(-10deg) rotateY(0deg); }
-    to { transform: perspective(1000px) rotateX(-10deg) rotateY(360deg); }
+from { transform: perspective(1000px) rotateX(-10deg) rotateY(0deg); }
+to { transform: perspective(1000px) rotateX(-10deg) rotateY(360deg); }
 }
-
 #happy-text, #bday-text {
-    margin: 0; /* Removes the big gap between the two words */
-    padding: 0;
+margin: 0; /* Removes the big gap between the two words */
+padding: 0;
 }
 @keyframes float {
-    0% { transform: translateY(0px); }    /* Start position */
-    50% { transform: translateY(-10px); } /* Move up 10 pixels */
-    100% { transform: translateY(0px); }  /* Back to start */
+0% { transform: translateY(0px); } /* Start position */
+50% { transform: translateY(-10px); } /* Move up 10 pixels */
+100% { transform: translateY(0px); } /* Back to start */
 }
-
 #happy-text {
-    font-size: 3rem;
-    color: #ffafcc; /* Different color for Happy */
-    animation: float 3s ease-in-out infinite;
+font-size: 3rem;
+color: #ffafcc; /* Different color for Happy */
+animation: float 3s ease-in-out infinite;
 }
-
 #bday-text {
-    font-size: 4rem;
-    color: #ffffff;
-    margin-bottom: 10px; /* Space before the profile picture */
-    animation: float 3s ease-in-out 0.5s infinite;
+font-size: 4rem;
+color: #ffffff;
+margin-bottom: 10px; /* Space before the profile picture */
+animation: float 3s ease-in-out 0.5s infinite;
 }
-
 #bday-text {
-    position: relative; /* This is the anchor for the cap */
-    display: inline-block; /* Allows the cap to stay attached to the word width */
+position: relative; /* This is the anchor for the cap */
+display: inline-block; /* Allows the cap to stay attached to the word width */
 }
-
 #bday-text::before {
-    content: "🥳"; /* You can use an emoji or a link to an image */
-    position: absolute;
-    
-    /* Logic: Position it above the 'B' */
-    top: -45px; 
-    left: -20px;
-    
-    font-size: 3rem;
-    transform: rotate(-20deg); /* Tilts the cap for a fun look */
-    
-    /* Animation: Makes the cap bounce slightly */
-    animation: cap-bounce 2s ease-in-out infinite;
+content: "🥳"; /* You can use an emoji or a link to an image */
+position: absolute;
+/* Logic: Position it above the 'B' */
+top: -45px;
+left: -20px;
+font-size: 3rem;
+transform: rotate(-20deg); /* Tilts the cap for a fun look */
+/* Animation: Makes the cap bounce slightly */
+animation: cap-bounce 2s ease-in-out infinite;
 }
-
 @keyframes cap-bounce {
-    0%, 100% { transform: rotate(-20deg) translateY(0); }
-    50% { transform: rotate(-10deg) translateY(-5px); }
+0%, 100% { transform: rotate(-20deg) translateY(0); }
+50% { transform: rotate(-10deg) translateY(-5px); }
 }
-
 h1,h2,h3,h4,p{
-    text-shadow: 0px 0px 1px black
+text-shadow: 0px 0px 1px black
 }
-
 img{
-    border-radius: 100%;
-    border: 6px solid #EFB0C9;
-    width: 200px;
-    height:300px;
+border-radius: 100%;
+border: 6px solid #EFB0C9;
+width: 200px;
+height:300px;
 }
-
 #bday-age{
-    background: #EFB0C9;
-    border-radius: 3px;
-    padding:5px 10px;
-    margin:5px 0 10px 0;
+background: #EFB0C9;
+border-radius: 3px;
+padding:5px 10px;
+margin:5px 0 10px 0;
 }
-
 #bday-date{
-    background: #EFB0C9;
-    border-radius: 3px;
-    padding:4px 8px 4px 8px;
-    margin-top: 3px;
+background: #EFB0C9;
+border-radius: 3px;
+padding:4px 8px 4px 8px;
+margin-top: 3px;
 }
-
 #header{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+display:flex;
+flex-direction: column;
+align-items: center;
 }
-
 .gift-section{
-    margin-top:50px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+margin-top:50px;
+display:flex;
+flex-direction:column;
+align-items:center;
 }
-
 .gift-title{
-    margin-bottom:10px;
+margin-bottom:10px;
 }
 .gift-hint{
-    margin-top:0;
+margin-top:0;
 }
 .gift-img{
-    width:400px;
-    height:400px;
-    border: 5px solid #B20A16;
-    background-image: url("images/gift-cover.jpg");
-    background-size: cover;
-    background-position: center;
-
+width:400px;
+height:400px;
+border: 5px solid #B20A16;
+background-image: url("images/gift-cover.jpg");
+background-size: cover;
+background-position: center;
 }
 #gift-img-promise{
-    height: 290px;
-    background-size: cover;
-    background-position: center;
+height: 290px;
+background-size: cover;
+background-position: center;
 }
 #gift-img-promise:hover{
-    background-image: url("images/happybirthday.gif");
-    background-size:130%;
-    background-repeat: no-repeat; 
-    background-position: center;   
+background-image: url("images/happybirthday.gif");
+background-size:130%;
+background-repeat: no-repeat;
+background-position: center;
 }
-
 #gift-img-hot:hover{
-    background-image: url("images/guyblushing.gif");
-    background-size: 200%;
-    background-repeat: no-repeat; 
+background-image: url("images/guyblushing.gif");
+background-size: 200%;
+background-repeat: no-repeat;
 }
-
 #gift-img-scary:hover{
-    background-image:url("images/anime-angry.gif");
-    background-size: 190%;
-    background-repeat: no-repeat; 
+background-image:url("images/anime-angry.gif");
+background-size: 190%;
+background-repeat: no-repeat;
 }
-
 #gift-img-cute:hover{
-    background-image:url("images/cute.gif");
-        background-size:178%;
-    background-repeat: no-repeat;
+background-image:url("images/cute.gif");
+background-size:178%;
+background-repeat: no-repeat;
 }
-
 #gift-img-thank:hover{
-        background-image:url("images/anime-thank.gif");
-        background-size: 100%;
-        background-repeat: no-repeat;
+background-image:url("images/anime-thank.gif");
+background-size: 100%;
+background-repeat: no-repeat;
 }
-
 /* 1. Hide the text by default */
 .hover-text {
-    display: none;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #ffffff;
-    text-shadow: 0px 0px 1px black;
+display: none;
+margin-top: 10px;
+font-size: 1.2rem;
+color: #ffffff;
+text-shadow: 0px 0px 1px black;
 }
-
 /* 2. When the CONTAINER is hovered, show the text */
 .gift-container:hover .hover-text {
-    display: block;
+display: block;
 }
-
 /* 3. Ensure the container centers everything */
 .gift-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 50px;
 }
-
 .postcard-container {
-    margin: 100px auto;
-    width: 400px;
-    height: 250px;
-    perspective: 1000px; /* Gives the flip depth */
+margin: 100px auto;
+width: 425px;
+height: 285px;
+perspective: 1000px; /* Gives the flip depth */
 }
-
 .postcard {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d; /* Keeps the children in 3D space */
-    cursor: pointer;
+width: 100%;
+height: 100%;
+position: relative;
+transition: transform 0.8s;
+transform-style: preserve-3d; /* Keeps the children in 3D space */
+cursor: pointer;
 }
-
 /* Logic: When we hover the container, flip the card 180 degrees */
 .postcard-container:hover .postcard {
-    transform: rotateY(180deg);
+transform: rotateY(180deg);
 }
-
 .postcard-front {
-    position: relative;
-    transform: rotateY(180deg); 
+position: relative;
+transform: rotateY(180deg);
 }
-
 .postcard-front, .postcard-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Logic: Hides the side facing away from us */
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden; /* Logic: Hides the side facing away from us */
+border-radius: 10px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-
 /* NEW CSS TO ADD */
-
 /* Target only the image inside the postcard front */
 .postcard-front img {
-    border-radius: 10px; /* Overrides the global 100% */
+    border-radius: 10px; 
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* Use 'contain' to see the whole image without cropping */
+    /* Use 'fill' if you want it to stretch to the exact 525x300 edges */
+    object-fit: contain; 
+    background-color: white; /* Optional: adds a background if the image aspect ratio differs */
     border: 5px solid white;
     box-sizing: border-box;
     display: block;
 }
-
 .postcard-back {
-    background-color: #a2d2ff; 
-    color:#ffffff;
-    padding: 20px;
-    transform: rotateY(0deg); /* Changed from 180 to 0 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #ddd;
+background-color: #a2d2ff;
+color:#ffffff;
+padding: 20px;
+transform: rotateY(0deg); /* Changed from 180 to 0 */
+display: flex;
+flex-direction: column;
+justify-content: center;
+border: 1px solid #ddd;
 }
-
 .signature {
-    text-align: right;
-    font-family: 'cursive', sans-serif;
-    margin-top: 20px;
+text-align: right;
+font-family: 'cursive', sans-serif;
+margin-top: 20px;
 }
-
-
