@@ -84,19 +84,15 @@
             this.classList.toggle('active');
         });
     });
-
 // Updated LOGIC 2: Handle the Postcard
-const cards = document.querySelectorAll('.postcard-container');
+const cardContainer = document.querySelector('.postcard-container');
 
-cards.forEach(card => {
-    card.addEventListener('click', function(e) {
-        // Prevent any weird browser jumping
-        e.preventDefault();
-        // Toggle the class
+if (cardContainer) {
+    cardContainer.addEventListener('click', function() {
+        // This toggles the 'flipped' class on the container
         this.classList.toggle('flipped');
-        console.log("Card flipped state:", this.classList.contains('flipped'));
     });
-});
+}
 </script>
     </body>
 
