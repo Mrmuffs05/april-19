@@ -185,6 +185,7 @@ height: 285px;
 perspective: 1000px; /* Gives the flip depth */
 cursor: pointer;
 touch-action: manipulation;
+pointer-events: auto;
 }
 .postcard {
 width: 100%;
@@ -194,10 +195,22 @@ transition: transform 0.8s;
 transform-style: preserve-3d; /* Keeps the children in 3D space */
 cursor: pointer;
 }
-/* Update this rule */
-.postcard-container:hover .postcard, 
+/* Update this rule */ 
 .postcard-container.flipped .postcard {
     transform: rotateY(180deg);
+}
+
+@media (hover: hover) {
+    .postcard-container:hover .postcard {
+        transform: rotateY(180deg);
+    }
+}
+
+.postcard img, .postcard-back {
+    user-select: none;
+    -webkit-user-drag: none;
+    /* This makes sure the tap goes STRAIGHT to the container */
+    pointer-events: none; 
 }
 .postcard-front {
 position: relative;
