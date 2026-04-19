@@ -85,15 +85,18 @@
         });
     });
 
-    // LOGIC 2: Handle the Postcard
-    const card = document.querySelector('.clickable-card');
-    
-    if(card) {
-        card.addEventListener('click', function() {
-            // Toggles the 'flipped' class on and off
-            this.classList.toggle('flipped');
-        });
-    }
+// Updated LOGIC 2: Handle the Postcard
+const cards = document.querySelectorAll('.postcard-container');
+
+cards.forEach(card => {
+    card.addEventListener('click', function(e) {
+        // Prevent any weird browser jumping
+        e.preventDefault();
+        // Toggle the class
+        this.classList.toggle('flipped');
+        console.log("Card flipped state:", this.classList.contains('flipped'));
+    });
+});
 </script>
     </body>
 

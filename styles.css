@@ -183,6 +183,8 @@ margin: 100px auto;
 width: 425px;
 height: 285px;
 perspective: 1000px; /* Gives the flip depth */
+cursor: pointer;
+touch-action: manipulation;
 }
 .postcard {
 width: 100%;
@@ -208,6 +210,7 @@ height: 100%;
 backface-visibility: hidden; /* Logic: Hides the side facing away from us */
 border-radius: 10px;
 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+pointer-events: none;
 }
 /* NEW CSS TO ADD */
 /* Target only the image inside the postcard front */
